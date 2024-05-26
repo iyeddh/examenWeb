@@ -1,0 +1,833 @@
+.App{
+  .addposte{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    form{
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      textarea{
+        border-radius: 20px;
+        width: 100%;
+      }
+      .titre{
+        .input-container {
+          position: relative;
+          margin: 50px auto;
+          width: 200px;
+        }
+        
+        .input-container input[type="text"] {
+          font-size: 20px;
+          width: 100%;
+          border: none;
+          border-bottom: 2px solid #ccc;
+          padding: 5px 0;
+          background-color: transparent;
+          outline: none;
+        }
+        
+        .input-container .label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          color: #ccc;
+          transition: all 0.3s ease;
+          pointer-events: none;
+        }
+        
+        .input-container input[type="text"]:focus ~ .label,
+        .input-container input[type="text"]:valid ~ .label {
+          top: -20px;
+          font-size: 16px;
+          color: #333;
+        }
+        
+        .input-container .underline {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2px;
+          width: 100%;
+          background-color: #333;
+          transform: scaleX(0);
+          transition: all 0.3s ease;
+        }
+        
+        .input-container input[type="text"]:focus ~ .underline,
+        .input-container input[type="text"]:valid ~ .underline {
+          transform: scaleX(1);
+        }
+        
+      }
+    }
+    .liste{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    h1{
+      color: #FFA31A;
+    }
+    button {
+      width: 100px;
+      left: 50%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: white;
+      background-color: #171717;
+      padding: 1em 2em;
+      border: none;
+      border-radius: .6rem;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    
+    button span:not(:nth-child(6)) {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 30px;
+      width: 30px;
+      background-color: #0c66ed;
+      border-radius: 50%;
+      transition: .6s ease;
+    }
+    
+    button span:nth-child(6) {
+      position: relative;
+    }
+    
+    button span:nth-child(1) {
+      transform: translate(-3.3em, -4em);
+    }
+    
+    button span:nth-child(2) {
+      transform: translate(-6em, 1.3em);
+    }
+    
+    button span:nth-child(3) {
+      transform: translate(-.2em, 1.8em);
+    }
+    
+    button span:nth-child(4) {
+      transform: translate(3.5em, 1.4em);
+    }
+    
+    button span:nth-child(5) {
+      transform: translate(3.5em, -3.8em);
+    }
+    
+    button:hover span:not(:nth-child(6)) {
+      transform: translate(-50%, -50%) scale(4);
+      transition: 1.5s ease;
+    }
+      
+    .checkbox{
+      .customCheckBoxHolder {
+        margin: 5px;
+        display: flex;
+      }
+      
+      .customCheckBox {
+        width: fit-content;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        user-select: none;
+        padding: 2px 8px;
+        background-color: rgba(0, 0, 0, 0.16);
+        border-radius: 0px;
+        color: rgba(255, 255, 255, 0.7);
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 300ms;
+        transition-property: color, background-color, box-shadow;
+        display: flex;
+        height: 32px;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px 1px 1px 0px;
+        outline: none;
+        justify-content: center;
+        min-width: 55px;
+      }
+      
+      .customCheckBox:hover {
+        background-color: #2c2c2c;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+      }
+      
+      .customCheckBox .inner {
+        font-size: 18px;
+        font-weight: 900;
+        pointer-events: none;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 300ms;
+        transition-property: transform;
+        transform: translateY(0px);
+      }
+      
+      .customCheckBox:hover .inner {
+        transform: translateY(-2px);
+      }
+      
+      .customCheckBoxWrapper:first-of-type .customCheckBox {
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        border-right: 0px;
+      }
+      
+      .customCheckBoxWrapper:last-of-type .customCheckBox {
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        border-left: 0px;
+      }
+      
+      .customCheckBoxInput {
+        display: none;
+      }
+      
+      .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox {
+        background-color: #2d6737;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+      }
+      
+      .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox .inner {
+        transform: translateY(-2px);
+      }
+      
+      .customCheckBoxInput:checked + .customCheckBoxWrapper .customCheckBox:hover {
+        background-color: #34723f;
+        box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
+      }
+      
+      .customCheckBoxWrapper .customCheckBox:hover .inner {
+        transform: translateY(-2px);
+      }
+    }
+    .wrapper {
+      
+      --font-color-dark: #FFA31A;
+      --font-color-light: #FFF;
+      --bg-color: #fff;
+      --main-color: #FFA31A;
+      position: relative;
+      width: 500px;
+      height: 36px;
+      background-color: var(--bg-color);
+      border: 2px solid var(--main-color);
+      border-radius: 34px;
+      display: flex;
+      flex-direction: row;
+      box-shadow: 4px 4px var(--main-color);
+    }
+    
+    .option {
+      width: 80.5px;
+      height: 28px;
+      position: relative;
+      top: 2px;
+      left: 2px;
+    }
+    
+    .input {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      appearance: none;
+      cursor: pointer;
+    }
+    
+    .btn {
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .span {
+      color: var(--font-color-dark);
+    }
+    
+    .input:checked + .btn {
+      background-color: var(--main-color);
+    }
+    
+    .input:checked + .btn .span {
+      color: var(--font-color-light);
+    }
+  }
+  .Posts{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    gap: 150 px;
+    
+    .post{
+      background-color:whitesmoke;
+      display: flex;
+      gap: 250px;
+      margin: 20px;
+      border-radius: 40px;
+      padding: 20px;
+      &:nth-child(2n+1){
+        flex-direction: row-reverse;
+      }
+      .image{
+        img{
+          width: 300px;
+          height: 300px;
+          border-radius: 30px;
+        }
+      }
+      .titre{
+        .delete{
+          button {
+            width: 150px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background: red;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+            background: #e62222;
+           }
+           
+           button, button span {
+            transition: 200ms;
+           }
+           
+           button .text {
+            transform: translateX(35px);
+            color: white;
+            font-weight: bold;
+           }
+           
+           button .icon {
+            position: absolute;
+            border-left: 1px solid #c41b1b;
+            transform: translateX(110px);
+            height: 40px;
+            width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           }
+           
+           button svg {
+            width: 15px;
+            fill: #eee;
+           }
+           
+           button:hover {
+            background: #ff3636;
+           }
+           
+           button:hover .text {
+            color: transparent;
+           }
+           
+           button:hover .icon {
+            width: 150px;
+            border-left: none;
+            transform: translateX(0);
+           }
+           
+           button:focus {
+            outline: none;
+           }
+           
+           button:active .icon svg {
+            transform: scale(0.8);
+           }
+        }
+        button{
+          position: relative;
+          display: inline-block;
+          padding: 15px 30px;
+          text-align: center;
+          font-size: 18px;
+          letter-spacing: 1px;
+          text-decoration: none;
+          color: #FFA31A;
+          background: transparent;
+          cursor: pointer;
+          transition: ease-out 0.5s;
+          border: 2px solid #FFA31A;
+          border-radius: 10px;
+          box-shadow: inset 0 0 0 0 #FFA31A;
+          margin: 15px;
+          &:hover{
+            color: white;
+            box-shadow: inset 0 -100px 0 0 #FFA31A;
+            
+          }
+          button:active {
+            transform: scale(0.9);
+          }
+        }
+      }
+    }
+  }
+  
+  .auth{
+    width:50%;
+   height: 50%;
+   position: relative;
+   left: 150px;
+   top:12px;
+    margin-top: 30 px;
+    padding: 180px;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   border: none;
+   a{
+    text-decoration: none;
+    color:#FFA31A;
+  }
+  a:hover{
+    color:black;
+    font-size: 18px;
+  }
+  
+   
+   .titre{
+    color: #FFA31A;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  } 
+   form{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      label{
+        color:#FFA31A;
+        font-size: 18px;
+        text-align: left;
+
+      }
+      input {
+        width: 100%;
+        height: 40px;
+        line-height: 28px;
+        padding: 0 1rem;
+        padding-left: 2.5rem;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        outline: none;
+        background-color: #f3f3f4;
+        color: #0d0c22;
+        transition: .3s ease;
+       }
+       
+       input::placeholder {
+        color: #9e9ea7;
+       }
+       
+       input:focus, input:hover {
+        outline: none;
+        border-color: #f0680766;
+        background-color: #fff;
+        box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+       }
+       .btn-12,
+.btn-12 *,
+.btn-12 :after,
+.btn-12 :before,
+.btn-12:after,
+.btn-12:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-12 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+  
+}
+
+.btn-12:disabled {
+  cursor: default;
+  
+}
+
+.btn-12:-moz-focusring {
+  outline: auto;
+  
+}
+
+.btn-12 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-12 [hidden] {
+  display: none;
+}
+
+.btn-12 {
+  border-radius: 99rem;
+  border-width: 2px;
+  overflow: hidden;
+  padding: 0.8rem 3rem;
+  position: relative;
+}
+
+.btn-12 span {
+  mix-blend-mode: difference;
+}
+
+.btn-12:after,
+.btn-12:before {
+  background: linear-gradient(
+    90deg,
+    #fff 25%,
+    transparent 0,
+    transparent 50%,
+    #fff 0,
+    #fff 75%,
+    transparent 0
+  );
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateY(var(--progress, 100%));
+  transition: transform 0.2s ease;
+}
+
+.btn-12:after {
+  --progress: -100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 25%,
+    #fff 0,
+    #fff 50%,
+    transparent 0,
+    transparent 75%,
+    #fff 0
+  );
+  z-index: -1;
+}
+
+.btn-12:hover:after,
+.btn-12:hover:before {
+  --progress: 0;
+}
+
+       
+      
+    }
+  }
+  .inscription{
+    width:50%;
+   position: relative;
+   left: 150px;
+    padding: 180px;
+    padding-top: 0px;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   .titre{
+    color: #FFA31A;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  } 
+  a{
+    text-decoration: none;
+    color:#FFA31A;
+    margin-top: 14px;
+  }
+  a:hover{
+    color:black;
+    font-size: 18px;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    label{
+      color:#FFA31A;
+      font-size: 18px;
+      text-align: left;
+
+    }
+    input {
+      width: 100%;
+      height: 40px;
+      line-height: 28px;
+      padding: 0 1rem;
+      padding-left: 2.5rem;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      outline: none;
+      background-color: #f3f3f4;
+      color: #0d0c22;
+      transition: .3s ease;
+     }
+     
+     input::placeholder {
+      color: #9e9ea7;
+     }
+     
+     input:focus, input:hover {
+      outline: none;
+      border-color: #f0680766;
+      background-color: #fff;
+      box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+     }
+     .btn-12,
+.btn-12 *,
+.btn-12 :after,
+.btn-12 :before,
+.btn-12:after,
+.btn-12:before {
+border: 0 solid;
+box-sizing: border-box;
+}
+
+.btn-12 {
+-webkit-tap-highlight-color: transparent;
+-webkit-appearance: button;
+background-color: #000;
+background-image: none;
+color: #fff;
+
+cursor: pointer;
+font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+  Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+  Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+font-size: 100%;
+font-weight: 900;
+line-height: 1.5;
+margin: 0;
+-webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+padding: 0;
+text-transform: uppercase;
+
+}
+
+.btn-12:disabled {
+cursor: default;
+
+}
+
+.btn-12:-moz-focusring {
+outline: auto;
+
+}
+
+.btn-12 svg {
+display: block;
+vertical-align: middle;
+}
+
+.btn-12 [hidden] {
+display: none;
+}
+
+.btn-12 {
+border-radius: 99rem;
+border-width: 2px;
+overflow: hidden;
+padding: 0.8rem 3rem;
+position: relative;
+}
+
+.btn-12 span {
+mix-blend-mode: difference;
+}
+
+.btn-12:after,
+.btn-12:before {
+background: linear-gradient(
+  90deg,
+  #fff 25%,
+  transparent 0,
+  transparent 50%,
+  #fff 0,
+  #fff 75%,
+  transparent 0
+);
+content: "";
+inset: 0;
+position: absolute;
+transform: translateY(var(--progress, 100%));
+transition: transform 0.2s ease;
+}
+
+.btn-12:after {
+--progress: -100%;
+background: linear-gradient(
+  90deg,
+  transparent 0,
+  transparent 25%,
+  #fff 0,
+  #fff 50%,
+  transparent 0,
+  transparent 75%,
+  #fff 0
+);
+z-index: -1;
+}
+
+.btn-12:hover:after,
+.btn-12:hover:before {
+--progress: 0;
+}
+}
+}
+.navbar {
+  font-size: 20px;
+  position: sticky;
+
+  .contenu {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 60 px;
+
+    
+    .domaine{
+      display: flex;
+      gap: 30px;
+      background-color: #fff;
+      box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+      padding: 1.75rem;
+      border-radius: 99px;
+      a{
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: black;
+        font-weight: 500;
+        border-radius: 99px;
+        cursor: pointer;
+        transition: color 0.15s ease-in;  
+      }
+      a:hover{
+        color: #FFA31A;
+      }
+      display: flex;
+      .state{
+        top: 0px;
+        display: flex;
+        gap: 10px;
+        a {
+          font-size: 11px;
+          --primary-color: #FFA31A;
+          --secondary-color: #111;
+          --hover-color: #fff;
+          --arrow-width: 10px;
+          --arrow-stroke: 2px;
+          box-sizing: border-box;
+          border: 0;
+          border-radius: 20px;
+          color: var(--secondary-color);
+          padding: 1em 1.8em;
+          background: var(--primary-color);
+          display: flex;
+          transition: 0.2s background;
+          align-items: center;
+          gap: 0.6em;
+          font-weight: bold;
+        }
+        
+        a .arrow-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+        a .arrow {
+          margin-top: 1px;
+          width: var(--arrow-width);
+          background: var(--primary-color);
+          height: var(--arrow-stroke);
+          position: relative;
+          transition: 0.2s;
+        }
+        
+        a .arrow::before {
+          content: "";
+          box-sizing: border-box;
+          position: absolute;
+          border: solid var(--secondary-color);
+          border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+          display: inline-block;
+          top: -3px;
+          right: 3px;
+          transition: 0.2s;
+          padding: 3px;
+          transform: rotate(-45deg);
+        }
+        
+        a:hover {
+          background-color: var(--hover-color);
+        }
+        
+        a:hover .arrow {
+          background: var(--secondary-color);
+        }
+        
+        a:hover .arrow:before {
+          right: 0;
+        }
+        
+      }
+    }
+    .data{
+      font-size: 16px;
+      display: flex;
+      gap: 30px;
+      text-align: center;
+      .nom{
+        color: #4c3007;
+        display: flex;
+        flex-direction: column;
+      }
+      img{
+        width: 10%;
+        height: 10%;
+        border-radius: 30%;
+        border: 1 solid #000;
+      }
+    }
+    
+  }
+}
+}
